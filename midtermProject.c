@@ -138,7 +138,7 @@ int quiz1()
 	scanf("%s", answer1); //true
 
 	char answer2[10];
-	printf("\nWhich is a prime number?\n(a) 39\n(b) 37\n(c) 81\n(d) 99 ");
+	printf("\nWhich is a prime number?\n(a) 39\n(b) 37\n(c) 81\n(d) 99 \n");
 	scanf("%s", answer2); //b
 	
 	char answer3[50];
@@ -175,7 +175,7 @@ int quiz2()
 	scanf("%s", answer1); //false
 
 	char answer2[10];
-	printf("\nWhich of the following are not string formats?\n(a) %s\n(b) %c\n(c) %If\n(d) %s ");
+	printf("\nWhich of the following are not string formats?\n(a) %s\n(b) %c\n(c) %If\n(d) %s \n");
 	scanf("%s", answer2); //c
 	
 	char answer3[50];
@@ -207,15 +207,15 @@ int quiz3()
 {
 	int score = 0;
 	char answer1[10];
-	printf("\nA for loop and a while loop are written the same way, but they have to use different variables (true/false)");
+	printf("\nA for loop and a while loop are written the same way, but they have to use different variables (true/false) ");
 	scanf("%s", answer1); //false
 
 	char answer2[10];
-	printf("\nWhich number is divisible by 3? \n(a) 299\n(b) 341\n(c) 103\n(d) 1488");
+	printf("\nWhich number is divisible by 3? \n(a) 299\n(b) 341\n(c) 103\n(d) 1488\n");
 	scanf("%s", answer2); //d
 	
 	char answer3[50];
-	printf("\nDuring a _______ statement the code takes the value given by the user and assigns it to a variable");
+	printf("\nDuring a _______ statement the code takes the value given by the user and assigns it to a variable ");
 	scanf("%s", answer3); //scanf
 	
     if (strcmp(answer1, "false") == 0) {
