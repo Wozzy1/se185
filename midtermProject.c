@@ -23,6 +23,10 @@
 -	                            Functions Prototypes                                   -
 -----------------------------------------------------------------------------*/
 
+int quiz1();
+int quiz2();
+int quiz3();
+
 /*----------------------------------------------------------------------------
 -	                                Notes                                    -
 -----------------------------------------------------------------------------*/
@@ -34,65 +38,72 @@
 -----------------------------------------------------------------------------*/
 
 //global vars
-int trueFinal[3][25]; // 3 quizzes, 25 attempts each
-int score = 0;
+int finalScore = 0;
+int questionsAnswered = 0;
 
 int main()
 {
 	//SOME LOOP HERE TO KEEP THE PROGRAM GOING UNTIL PERFECT SCORE
 	printf("\nThis is Midterm Exam 1\nThere are three quizzes to take a complete: Quiz 1, Quiz 2, Quiz 3");
-	int num;
+	long int num;
 	printf("\nEnter a random number (1-9) ");
-	scanf("%d", &num);
-	//srand(time(num));
+	scanf("%ld", &num);
+	srand(num);
 	
 	bool allComplete = false;
 	bool complete1 = false;
 	bool complete2 = false;
 	bool complete3 = false;
-	bool isFinished = false; // true means done | false means continue
+	bool currentlyComplete = false;
 	int randNum = rand() % 3 + 1;
 	
+	printf("%d", randNum);
+	exit(0);
 	printf("\nYou were randomly selected to start with Exam %d", randNum);
 	printf("\n\n\n\n\n\n");
 	
-	while (!allComplete || !isFinished)
+	while (!allComplete)
 	{
-		
+		int tempScore = 0;
 		if (randNum == 1)
 		{
-			score = quiz1();
+			tempScore = quiz1();
 			
-			if (score == 15)
+			if (tempScore == 15)
 			{
 				complete1 = true;
+				currentlyComplete = true;
 			}
 		}
 		
 		else if (randNum == 2)
 		{
-			score = quiz2();
+			tempScore = quiz2();
 			
-			if (score == 15)
+			if (tempScore == 15)
 			{
 				complete2 = true;
+				currentlyComplete = true;
 			}
 		}
 		
 		else if (randNum == 3)
 		{
-			score = quiz3();
+			tempScore = quiz3();
 			
-			if (score == 15)
+			if (tempScore == 15)
 			{
 				complete3 = true;
+				currentlyComplete = true;
 			}
 		}
 		
-		if (complete1 || complete2 || complete3)
+		allComplete = complete1 && complete2 && complete3;
+		
+		if (!allComplete && ((complete1 || complete2 || complete3) && currentlyComplete))
 		{
 			int response;
-			printf("\nNice job. Now you can choose to take another quiz or be done");
+			printf("\nNice job. Now you can choose to take another quiz or be done.\n");
 			printf("\nTo take another quiz, enter the number (1, 2, 3) quiz you want to take and to be done, enter '0' ");
 			scanf("%d", &response);
 			
@@ -116,10 +127,15 @@ int main()
 			{
 				randNum = 3;
 			}
+			
+			currentlyComplete = false;
+
 		}
 		
-		allComplete = complete1 && complete2 && complete3;
 	}
+	
+	printf("\n\n\nGood job on finishing on those quizzes. I'm sure they were difficult!");
+	printf("\nYour final average across all questions answered was %.2lf%", (double)finalScore / (questionsAnswered * 5));
 	
 	// blah blah blah final score
 	// average good job
@@ -132,7 +148,7 @@ int main()
 
 int quiz1() 
 {
-	int score = 0;
+	int tempScore = 0;
 	char answer1[10];
 	printf("\naX+b is a linear combination (true/false) ");
 	scanf("%s", answer1); //true
@@ -146,30 +162,32 @@ int quiz1()
 	scanf("%s", answer3); //fibonacci
 	
     if (strcmp(answer1, "true") == 0) {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 1 incorrect\n");
     }
 
     if (answer2[0] == 'b') {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 2 incorrect\n");
     }
 
     if (strcmp(answer3, "fibonacci") == 0) {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 3 incorrect\n");
     }
-
-	return score;
+	
+	questionsAnswered += 3;
+	finalScore += tempScore;
+	return tempScore;
 
 }
 
 int quiz2()
 {
-	int score = 0;
+	int tempScore = 0;
 	char answer1[10];
 	printf("\nThe following code produces a compilation error: int m_idterm_project2023 = 3; (true/false) ");
 	scanf("%s", answer1); //false
@@ -183,29 +201,31 @@ int quiz2()
 	scanf("%s", answer3); //1
 	
     if (strcmp(answer1, "false") == 0) {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 1 incorrect\n");
     }
 
     if (answer2[0] == 'c') {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 2 incorrect\n");
     }
 
     if (strcmp(answer3, "1") == 0) {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 3 incorrect\n");
     }
 
-	return score;
+	questionsAnswered += 3;
+	finalScore += tempScore;
+	return tempScore;
 }
 
 int quiz3()
 {
-	int score = 0;
+	int tempScore = 0;
 	char answer1[10];
 	printf("\nA for loop and a while loop are written the same way, but they have to use different variables (true/false) ");
 	scanf("%s", answer1); //false
@@ -219,30 +239,24 @@ int quiz3()
 	scanf("%s", answer3); //scanf
 	
     if (strcmp(answer1, "false") == 0) {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 1 incorrect\n");
     }
 
     if (answer2[0] == 'd') {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 2 incorrect\n");
     }
 
     if (strcmp(answer3, "scanf") == 0) {
-        score = 5 + score;
+        tempScore = 5 + tempScore;
     } else {
         printf("You got question 3 incorrect\n");
     }
 
-	return score;
-}
-
-void convertToLowercase(char *str) {
-    int i = 0;
-    while (str[i] != '\0') {
-        str[i] = tolower(str[i]);
-        i++;
-    }
+	questionsAnswered += 3;
+	finalScore += tempScore;
+	return tempScore;
 }
