@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <stdbool.h>
+#include <time.h>
 
 /*----------------------------------------------------------------------------
 -	                            Functions Prototypes                                   -
@@ -30,9 +32,92 @@
 /*----------------------------------------------------------------------------
 -								Implementation								                               -
 -----------------------------------------------------------------------------*/
+
+//global vars
+int trueFinal[3][25]; // 3 quizzes, 25 attempts each
+int score = 0;
+
 int main()
 {
 	//SOME LOOP HERE TO KEEP THE PROGRAM GOING UNTIL PERFECT SCORE
+	printf("\nThis is Midterm Exam 1");
+	
+	printf("\nEnter a random number (1-9)");
+	scanf("%d", &num);
+	srand(time(num));
+	
+	bool complete = false;
+	bool isFinished = false; // true means done | false means continue
+	int randNum = rand() % 3 + 1;
+	
+	printf("\nYou were randomly selected to start with Exam %d", randNum);
+	printf("\n\n\n\n\n\n");
+	
+	while (!complete && !isFinished)
+	{
+		
+		if (randNum == 1)
+		{
+			quiz1();
+			
+			if (score == 15)
+			{
+				complete = true;
+			}
+		}
+		
+		else if (randNum == 2)
+		{
+			quiz2();
+			
+			if (score == 15)
+			{
+				complete = true;
+			}
+		}
+		
+		else if (randNum == 3)
+		{
+			quiz3();
+			
+			if (score == 15)
+			{
+				complete = true;
+			}
+		}
+		
+		if (complete)
+		{
+			char response[10];
+			printf("\nNice job. Now you can choose to take another quiz or be done");
+			printf("\nTo take another quiz, enter the number (1, 2, 3) quiz you want to take and to be done, enter '0'");
+			scanf("%d", response);
+			
+			if (response == 0)
+			{
+				break;
+			}
+			
+			else if (response == 1)
+			{
+				randNum = 1;
+			}
+			
+			else if (response == 2)
+			{
+				randNum = 2;
+			}
+			
+			else if (response == 3)
+			{
+				randNum = 3;
+			}
+		}
+		
+	}
+	
+	// blah blah blah final score
+	// average good job
 
     return 0;
 }
@@ -53,7 +138,7 @@ int quiz1()
 	
 	char answer3[50];
 	printf("\nThe ________ sequence is a series of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1");
-	scanf("%s", answer2); //fibonacci
+	scanf("%s", answer3); //fibonacci
 	
 }
 
