@@ -40,7 +40,7 @@ int score = 0;
 int main()
 {
 	//SOME LOOP HERE TO KEEP THE PROGRAM GOING UNTIL PERFECT SCORE
-	printf("\nThis is Midterm Exam 1");
+	printf("\nThis is Midterm Exam 1\nThere are three quizzes to take a complete: Quiz 1, Quiz 2, Quiz 3");
 	int num;
 	printf("\nEnter a random number (1-9) ");
 	scanf("%d", &num);
@@ -175,7 +175,7 @@ int quiz2()
 	scanf("%s", answer1); //false
 
 	char answer2[10];
-	printf("\nWhich of the following are not string formats?\n(a) %s\n(b) %c\n(c) %If\n(d) %s \n");
+	printf("\nWhich of the following is not a statement within C code?\n(a) scanf\n(b) printf\n(c) readf\n(d) strcmp \n");
 	scanf("%s", answer2); //c
 	
 	char answer3[50];
