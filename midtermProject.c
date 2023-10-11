@@ -5,7 +5,7 @@
 (Use this line to describe your contribution to the project)
 2- Nathan Ervin - Role: Quiz Creator and debugger - Participation: y%
 (Use this line to describe your contribution to the project)
-3- Look Wilson I can edit this file!
+3- 
 4-
 5-																                                     -
 -----------------------------------------------------------------------------*/
